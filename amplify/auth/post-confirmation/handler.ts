@@ -3,7 +3,6 @@ import { Amplify } from 'aws-amplify';
 import { generateClient } from 'aws-amplify/api';
 import { createUserProfile } from './graphql/mutations';
 import { env } from '\$amplify/env/post-confirmation';
-
 Amplify.configure(
   {
     API: {
@@ -28,9 +27,7 @@ Amplify.configure(
     }
   }
 );
-
 const client = generateClient();
-
 export const handler: PostConfirmationTriggerHandler = async (event) => {
   await client.graphql({
     query: createUserProfile,
@@ -41,6 +38,5 @@ export const handler: PostConfirmationTriggerHandler = async (event) => {
       }
     }
   });
-
   return event;
 };
