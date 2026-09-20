@@ -4,6 +4,7 @@ backend:
     build:
       commands:
         - npm install --legacy-peer-deps
+        - npx ampx generate outputs --out .
 frontend:
   phases:
     build:
